@@ -11,7 +11,7 @@ in the middle bottom of the screen.
 
 ## Run online
 
-https://viewlang.ru/viewzavr-apps/points-game
+https://viewlang.ru/viewzavr-apps/vr-points-game
 
 ## Run on own server
 
