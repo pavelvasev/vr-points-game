@@ -2,6 +2,10 @@
 
 ![135248480_318144169442860_5024065883639534625_n_small](https://user-images.githubusercontent.com/159179/103904292-e9e68700-511e-11eb-8c30-d68338979df5.jpg)
 
+## Run online
+
+https://viewlang.ru/viewzavr-apps/vr-points-game
+
 ## Control
 * click with mouse
 * move mouse while Ctrl key is pressed
@@ -11,10 +15,6 @@
 * You should enable WebXR in your browser somehow
 * click "Enter VR" semi-transparent button 
 in the middle bottom of the screen
-
-## Run online
-
-https://viewlang.ru/viewzavr-apps/vr-points-game
 
 ## Run on own server
 
