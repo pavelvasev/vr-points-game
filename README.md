@@ -28,4 +28,4 @@ MIT
 
 # Copyright
 
-2021 (c) Natalia Averburkh, Pavel Vasev
+2021 (c) Pavel Vasev
