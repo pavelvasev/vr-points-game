@@ -45,9 +45,11 @@
     qmlEngine.rootObject.vz = vz;
     
     ////////////////////////////
-    
-    import("./app.js").then( function(m) {
-      //vz.restoreFromHash();
+    import setup_library_one from "https://cdn.jsdelivr.net/gh/viewzavr/library-one@master/init.js";
+    setup_library_one(vz).then( function() {
+      import("./app.js").then( function(m) {
+        //vz.restoreFromHash();
+    });
     });
 
   </script>
