@@ -1,6 +1,7 @@
 /////////////// feature
 
 var dir = import.meta.url.substr( 0,import.meta.url.lastIndexOf("/") ) + "/files/";
+var dir2 = import.meta.url.substr( 0,import.meta.url.lastIndexOf("/") ) + "/files2/";
 
 var presets = {
   "none":null,
@@ -14,7 +15,17 @@ var presets = {
   "kick":dir+"131770__bertrof__sub-kick-long.wav",
   "piano":dir+"32158__zin__piano-2-140bpm.wav",
   "guitar":dir+"181425__serylis__guitar-chord.wav",
-  "tababa-bamm":dir+"4852__zajo__loop02.wav"
+  "tababa-bamm":dir+"4852__zajo__loop02.wav",
+  
+  "birds":dir2+"cartoon-birds-2_daniel-simion.wav",
+  "hawk":dir2+"Screaming Hawk 2-SoundBible.com-1003225740.wav",
+  "steps":dir2+"footsteps-1.wav",
+  "note 1":dir2+"MUSCInst_Mbira note 1 (ID 2285)_BSB.mp3",
+  "note 2":dir2+"MUSCInst_Mbira note 2 (ID 2286)_BSB.mp3",
+  "note 3":dir2+"MUSCInst_Mbira note 3 (ID 2287)_BSB.mp3",
+  "note 4":dir2+"MUSCInst_Mbira note 4 (ID 2288)_BSB.mp3",
+  "note 5":dir2+"MUSCInst_Mbira note 5 (ID 2289)_BSB.mp3"
+  
 };
 
 /// todo: add files hide/show if custom option is selected
