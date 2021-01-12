@@ -78,8 +78,11 @@ export function setup( vz, game ) {
     this.orig.apply( game, arguments );
   });
   function goif( name,limit,fn ) {
+    // return fn();
     instep[name] = (instep[name] || 0) +1;
-    if (instep[name] > limit && Math.random() > 0.05) return;
+    if (instep[name] > limit) {
+       if (Math.random() > 0.05) return;
+    }
     fn();
   }
   
@@ -92,7 +95,7 @@ export function setup( vz, game ) {
     }
     else
     if (value == 254 && prev != value) { // boom
-      goif( "boom",10, function() {
+      goif( "boom",5, function() {
         playsnd( "boom-sound", index );
       });
     }
