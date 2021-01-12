@@ -6,6 +6,7 @@ import * as colorer from "./colorer.js";
 import * as interact1 from "./mouse_clicker.js";
 import * as interact2 from "./mouse_clicker_ctrl_key.js";
 import * as interact3 from "./xr_clicker.js";
+import * as soundes from "./sounds/init.js";
 
 // создает объект "игра в точки"
 export function create( vz, opts ) {
@@ -18,6 +19,7 @@ export function create( vz, opts ) {
   interact1.setup( vz,obj ); // взаимодействие мышка клики
   interact2.setup( vz,obj ); // взаимодействие мышка движ
   interact3.setup( vz,obj ); // взаимодействие вирт реал
+  soundes.setup( vz, obj );  // sounds on points state change
   
   // входной параметр "points" это объект
   obj.setReference( "points" );

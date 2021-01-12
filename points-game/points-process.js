@@ -18,6 +18,23 @@ export function create( vz,opts ) {
       return states;
     }
     
+    obj.setState = function( index, value ) {
+      states[index] = value;
+    }
+    obj.getState = function( index ) {
+      return states[index];
+    }
+    obj.getPos = function( index ) {
+      if (!ptsobject) return [0,0,0];
+      var positions = ptsobject.positions;
+      if (3*(index+1) > positions.length) return [0,0,0];
+      if (index < 0) return [0,0,0];
+      var ox = positions[index*3];
+      var oy = positions[index*3+1];
+      var oz = positions[index*3+2];
+      return [ox,oy,oz];
+    }
+    
     obj.setPoints = function( pts ) {
       var old = ptsobject;
       ptsobject = pts;
@@ -44,7 +61,7 @@ export function create( vz,opts ) {
 
     // начинает процесс созревания точки с номером index
     obj.startpoint = function( index ) {
-      states[index] = 1;
+      obj.setState( index, 1 );
       nowgoing.push( index );
     }
 
@@ -66,14 +83,14 @@ export function create( vz,opts ) {
       while (i < nowgoing.length) {
         var index = nowgoing[i];
         if (states[index] < 254) {
-          states[index]++;
+          obj.setState( index, obj.getState(index)+1 );
           i++;
         }
         else
         { // приехали - покраснели (на шаге 254) - ну либо человек успел (состояние 255)
           nowgoing.splice( i,1 );
           
-          if (states[index] == 254) {
+          if (obj.getState(index) == 254) {
             obj.setParam("missed", obj.getParam("missed")+1 );
             // теперь поищем соседей
             obj.boom( index, states, ptsobject.positions, obj.startpoint );
@@ -135,7 +152,8 @@ export function create( vz,opts ) {
     obj.user_click_pt = function( index ) {
       //console.log( "user touch pt index=",index, "state=",states[index] );
       if (states[index] > 0 && states[index] < 254) {
-          states[index] = 255;
+          obj.setState( index, 255 );
+          // todo move out from here to other feature layer
           obj.setParam("catched", obj.getParam("catched")+1 );
       }
     }
