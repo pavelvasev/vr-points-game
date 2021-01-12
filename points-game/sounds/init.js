@@ -24,6 +24,8 @@ export function setup( vz, game ) {
 
   obj.addSlider( "volume",0.5, 0,1,0.05, function() {} );
   
+  var sources = {};
+  
   function addsnd( name ) {
   
      obj.addCombo( name+"-preset",0,Object.keys(presets),function(v) {
@@ -37,11 +39,26 @@ export function setup( vz, game ) {
       obj.setGuiVisible( name,v == 1);
     });
     
-    obj.addFile( name,"", function(v) {
-      if (v instanceof File) {
-        obj.setParam( name, URL.createObjectURL( v ) );
+    var gg = obj.addFile( name,"", function(v) {
+      //debugger;
+      if (v instanceof FileList) {
+        var acc = [];
+        for (var i=0; i<v.length; i++ ) 
+          acc.push( v[i] );
+        v = acc;
       }
+      if (!Array.isArray(v)) v = [v];
+      
+      for (var i=0; i<v.length; i++ ) {
+          var q = v[i];
+          if (q instanceof File) {
+            v[i] = URL.createObjectURL( q );
+          }
+      }
+      sources[name] = v;
     } );
+    gg.multiple = true;
+    gg.preferFiles = true;
     
     obj.setGuiVisible( name, false );
     
@@ -55,6 +72,15 @@ export function setup( vz, game ) {
   obj.addCmd("Sounds at freesound.org",function() {
      window.open("https://freesound.org/");
   });
+  obj.addCmd("Sounds at soundbible.com",function() {
+     window.open("https://soundbible.com/");
+  });
+  obj.addCmd("Sounds at bigsoundbank.com",function() {
+     window.open("https://bigsoundbank.com/");
+  });  
+  
+  
+  
 
   ///////////////////////////////////////////////////////
   
@@ -64,24 +90,33 @@ export function setup( vz, game ) {
     volume = volume * thisvolume;
     if (volume <= 0) return;
     var pos = game.getPos( index );
-    var url = obj.getParam( name );
+    
+    var variants = sources[name] || [];
+    if (variants.length == 0) return;
+    var vnum = Math.floor( Math.random() * variants.length );
+    
+    //var url = obj.getParam( name );
+    var url = variants[ vnum ];
+    
     vz.vis.playSound3d( pos,url,function(sound) {
       //if (name == "appear") volume = volume * 0.5;
       sound.setVolume( volume );
+      inplay[name] = (inplay[name] || 0)+1;
+    },
+    function(sound) {
+      inplay[name] = (inplay[name] || 0)-1;
     } );
   }
 
   
-  var instep = {};
-  game.chain("step", function() {
-    instep = {};
-    this.orig.apply( game, arguments );
-  });
+  var inplay = {};
+
   function goif( name,limit,fn ) {
-    // return fn();
-    instep[name] = (instep[name] || 0) +1;
-    if (instep[name] > limit) {
-       if (Math.random() > 0.05) return;
+    if (inplay[name] > limit) {
+       if (Math.random() > 0.05) {
+         // console.log("not playing, inplay name=",name,"val=",inplay[name] );
+         return;
+        }
     }
     fn();
   }
@@ -89,19 +124,19 @@ export function setup( vz, game ) {
   game.chain("setState", function(index, value) {
     var prev = game.getState(index);
     if (value == 1) { // appear
-      goif( "appear",10, function() {
+      goif( "appear-sound",10, function() {
         playsnd( "appear-sound", index );
       });
     }
     else
     if (value == 254 && prev != value) { // boom
-      goif( "boom",5, function() {
+      goif( "boom-sound",10, function() {
         playsnd( "boom-sound", index );
       });
     }
     else
     if (value == 255 && prev != value) { // heal
-      goif( "hit",1, function() {
+      goif( "hit-sound",5, function() {
         playsnd( "hit-sound", index );
       });
     }
