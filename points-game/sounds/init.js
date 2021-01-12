@@ -20,6 +20,7 @@ var presets = {
   "birds":dir2+"cartoon-birds-2_daniel-simion.wav",
   "hawk":dir2+"Screaming Hawk 2-SoundBible.com-1003225740.wav",
   "steps":dir2+"footsteps-1.wav",
+  "drum-beat":dir2+"40849__simon-lacelle__hip-hop-drum-beat.wav",
   "note 1":dir2+"MUSCInst_Mbira note 1 (ID 2285)_BSB.mp3",
   "note 2":dir2+"MUSCInst_Mbira note 2 (ID 2286)_BSB.mp3",
   "note 3":dir2+"MUSCInst_Mbira note 3 (ID 2287)_BSB.mp3",
