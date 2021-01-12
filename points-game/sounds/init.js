@@ -6,8 +6,9 @@ var dir2 = import.meta.url.substr( 0,import.meta.url.lastIndexOf("/") ) + "/file
 var presets = {
   "none":null,
   "custom":null,
-  "arp":dir+"324612__gokhanbiyik__arp-02.wav",
+  "stapler":dir2+"Stapling Paper-SoundBible.com-238116558.mp3",
   "maracas":dir+"414619__pjcohen__maraca-low-shake-velocity-11.wav",
+  "arp":dir+"324612__gokhanbiyik__arp-02.wav",
   "waterdrop":dir+"30341__junggle__waterdrop24.wav",
   "click":dir+"43677__stijn__click11.wav",
   "bubble":dir+"269583__ifrosta__bubble.wav",
@@ -38,9 +39,9 @@ export function setup( vz, game ) {
   
   var sources = {};
   
-  function addsnd( name ) {
+  function addsnd( name,defv ) {
   
-     obj.addCombo( name+"-preset",0,Object.keys(presets),function(v) {
+    obj.addCombo( name+"-preset",defv || 0,Object.keys(presets),function(v) {
       if (v > 1) {
         var url = Object.values(presets)[v];
         obj.setParam(name,url );
@@ -51,7 +52,7 @@ export function setup( vz, game ) {
       obj.setGuiVisible( name,v == 1);
     });
     
-    var gg = obj.addFile( name,"", function(v) {
+    var gg = obj.addFile( name, obj.getParam(name) || "", function(v) {
       //debugger;
       if (v instanceof FileList) {
         var acc = [];
@@ -69,6 +70,8 @@ export function setup( vz, game ) {
       }
       sources[name] = v;
     } );
+    obj.signalTracked( name );
+
     gg.multiple = true;
     gg.preferFiles = true;
     
@@ -78,8 +81,8 @@ export function setup( vz, game ) {
   }
   
   addsnd( "appear-sound" );
-  addsnd( "hit-sound" );
-  addsnd( "boom-sound" );
+  addsnd( "hit-sound",2 );
+  addsnd( "boom-sound",3 );
 
   obj.addCmd("Sounds at freesound.org",function() {
      window.open("https://freesound.org/");
