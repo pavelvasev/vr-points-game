@@ -80,10 +80,13 @@ export function create( vz,opts ) {
       
       // проводим процесс покраснения
       var i=0;
+      var changespeed = obj.getParam("change-speed") || 1;
+      
       while (i < nowgoing.length) {
         var index = nowgoing[i];
         if (states[index] < 254) {
-          obj.setState( index, obj.getState(index)+1 );
+          var nextstate = Math.min( 254, obj.getState(index) + changespeed );
+          obj.setState( index, nextstate );
           i++;
         }
         else
@@ -210,6 +213,7 @@ export function create( vz,opts ) {
     obj.addCmd( "resume", obj.start );
     
     obj.addSlider( "appear-speed",10, 0,100,1, function() {} );
+    obj.addSlider( "change-speed",1, 1,20,1, function() {} );
     
     var update_rating = function() {
       var a = obj.getParam("missed");
