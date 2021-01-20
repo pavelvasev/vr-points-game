@@ -23,6 +23,7 @@ function do_track( obj,ptsfunc ) {
 
     var pts = ptsfunc();
     if (!pts) return;
+    if (!pts.sceneObject) return;
 
     var sceneMouse = { x:0, y:0 };
     sceneMouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
