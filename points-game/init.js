@@ -29,7 +29,7 @@ export function create( vz, opts ) {
   obj.addObjectRef( "points","",(o) => !!o.positions, function( path ) {
     if (tmrid) clearTimeout( tmrid );
     tmrid = setTimeout( function() {
-      var pts = vz.find_by_path( vz.root,path );
+      var pts = vz.find_by_path( vz.find_root( obj ),path );
       obj.setPoints(pts);
     },10 ); // чуть чуть подождать - при инициализации path-объект еще могут не создать
   });
