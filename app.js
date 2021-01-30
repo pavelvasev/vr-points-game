@@ -7,8 +7,8 @@ export function create( vz, opts ) {
   points_game_setup( vz );
   
   var game = vz.create_obj_by_type( {type: "points-game", name: "points-game"} );
-  debugger;
-  var krako = vz.create_obj_by_type( {type: "krakozabra",manual:true, parent: game} );
+
+  var krako = vz.create_obj_by_type( {type: "krakozabra", parent: game} );
   game.setParam( "points", vz.get_path( krako.ns.getChildren()[0] ) );
 
   game.restart();
