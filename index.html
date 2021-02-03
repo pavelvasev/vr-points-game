@@ -49,6 +49,7 @@
     // import * as Player from "./init.js";
     import * as Player from "//viewlang.ru/viewzavr-apps/vr-player-v1/init.js";
     var vzPlayer = Player.create( vz, qmlEngine );
+    window.vzPlayer = vzPlayer;
     
     //////////////////////////// library-one
     vzPlayer.loadModule( "//viewlang.ru/viewzavr-apps/library-one/init.js" ).then( function() {

@@ -1,6 +1,9 @@
 // A strange abstract points figire named `Krakozyabra`
 
-export default function setup( vz ) {
+export function foo() {
+}
+
+export function setup( vz ) {
 
 function krako( opts ) {
 

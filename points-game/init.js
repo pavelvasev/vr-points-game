@@ -39,7 +39,7 @@ export function create( vz, opts ) {
 
 ////////////////////
 // регистрация типа во вьюзавре
-export default function setup( vz ) {
+export function setup( vz ) {
   vz.addItemType( "points-game","Points game", function( opts ) {
     return create( vz, opts );
   } );
