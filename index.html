@@ -1,91 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-  <script src="//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/viewlang/code/depends/jquery-2.1.4.js"></script>
-
-  <script src="//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/viewlang/code//depends/qmlweb/src/parser.js"></script>
-  <script src="//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/viewlang/code//depends/qmlweb/src/process.js"></script>
-  <script src="//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/viewlang/code//depends/qmlweb/src/import.js"></script>
-  <script src="//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/viewlang/code//depends/qmlweb/src/qtcore.js"></script>
-
-  <script src="//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/viewlang/code//base.js"></script>
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-  <div id="qmlSpace">
-      target space for qml...
-  </div>
-  <style>
-  #qmlSpace {
-    width: 100vw !important;
-    bottom: 0px !important;
-    z-index: 10000;
-  }
-  .viewlang-canvas {
-    width: 100%; height: 100%;
-    margin: 0; padding: 0; display: block; left: 0px; top: 0px; position: absolute;
-  }
-  body { margin: 0; }
-  </style>
+<body style="margin:10pt">
 
-  <script src="//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/viewlang/code//threejs_driver/init.js"></script>
+<h3>2021-02</h3>
 
-  <script type="module">
+<ul>
 
-    ///////////////////////////// qmlweb and viewlang (required for viewzavr-system-a implementation)
-    
-    import * as Viewlang from "//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/viewlang/code/embed2/init.js"
-    window.qmlEngine = new QMLEngine( document.getElementById( "qmlSpace" ) );
-    Viewlang.setup_qmlweb( qmlEngine );
-    
-    ///////////////////////////// viewzavr
-    
-    import * as Viewzavr from "//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/viewzavr-core/init.js";
+<li>
+<a href="http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=https://viewlang.ru/viewzavr-apps/vr-points-game/app.js#{%22mvis%22:{%22children%22:{%22state%22:{%22children%22:{}},%22scene%22:{%22params%22:{%22appear-speed%22:12,%22change-speed%22:1,%22points-count%22:1800,%22points%22:%22/krakozabra/mypts%22,%22steps%22:977,%22missed%22:222,%22rating%22:0.2972972972972973,%22catched%22:66,%22active%22:267},%22type%22:%22points-game%22,%22module_url%22:%22https://viewlang.ru/viewzavr-apps/vr-points-game/app.js%22,%22children%22:{%22colorer-multi%22:{%22params%22:{%22start-color%22:%22#ffaaaa%22,%22final-color%22:%22#ff0000%22,%22unpressed-color%22:%22#000000%22,%22pressed-color%22:%22#ffffff%22}},%22interact%22:{},%22sounds%22:{%22params%22:{%22volume%22:0.5,%22appear-sound-volume%22:1,%22hit-sound-preset%22:2,%22hit-sound%22:%22https://viewlang.ru/viewzavr-apps/vr-points-game/points-game/sounds/files2/Stapling%20Paper-SoundBible.com-238116558.mp3%22,%22hit-sound-volume%22:1,%22boom-sound-preset%22:3,%22boom-sound%22:%22https://viewlang.ru/viewzavr-apps/vr-points-game/points-game/sounds/files/414619__pjcohen__maraca-low-shake-velocity-11.wav%22,%22boom-sound-volume%22:1}},%22krakozabra%22:{%22params%22:{%22dlinna%22:17,%22radius%22:7.7,%22radius2%22:20,%22disp%22:0.2},%22type%22:%22krakozabra%22,%22children%22:{%22mypts%22:{%22params%22:{%22radius%22:0.9,%22color%22:255,%22opacity%22:100,%22depth-test%22:1,%22shape%22:2}}}}},%22packages%22:{%22codes%22:[],%22urls%22:[]}}}},%22params%22:{%22cameraPos%22:[4.247290640156336,1.9621370254857888,27.45405598120396],%22cameraCenter%22:[-2.1529528370660205,-1.5907870321203004,7.30843497529364]}}" target="_blank">Points game scene 1</a>
+</li>
+<li>
+<a href="http://viewlang.ru/viewzavr-apps/viewzavr-system-a/player/?src=https://viewlang.ru/viewzavr-apps/vr-points-game/app.js#{%22mvis%22:{%22children%22:{%22state%22:{%22children%22:{}},%22scene%22:{%22params%22:{%22appear-speed%22:12,%22change-speed%22:1,%22points-count%22:1800,%22points%22:%22/krakozabra/mypts%22,%22steps%22:1497,%22missed%22:1075,%22rating%22:0.32372093023255816,%22catched%22:348,%22active%22:875},%22type%22:%22points-game%22,%22module_url%22:%22https://viewlang.ru/viewzavr-apps/vr-points-game/app.js%22,%22children%22:{%22colorer-multi%22:{%22params%22:{%22start-color%22:%22#ffaaaa%22,%22final-color%22:%22#ff0000%22,%22unpressed-color%22:%22#000000%22,%22pressed-color%22:%22#ffffff%22}},%22interact%22:{},%22sounds%22:{%22params%22:{%22volume%22:0.5,%22appear-sound-volume%22:1,%22hit-sound-preset%22:2,%22hit-sound%22:%22https://viewlang.ru/viewzavr-apps/vr-points-game/points-game/sounds/files2/Stapling%20Paper-SoundBible.com-238116558.mp3%22,%22hit-sound-volume%22:1,%22boom-sound-preset%22:3,%22boom-sound%22:%22https://viewlang.ru/viewzavr-apps/vr-points-game/points-game/sounds/files/414619__pjcohen__maraca-low-shake-velocity-11.wav%22,%22boom-sound-volume%22:1}},%22krakozabra%22:{%22params%22:{%22dlinna%22:8,%22radius%22:8.5,%22radius2%22:16.8,%22disp%22:0.2},%22type%22:%22krakozabra%22,%22children%22:{%22mypts%22:{%22params%22:{%22radius%22:0.9,%22color%22:255,%22opacity%22:100,%22depth-test%22:1,%22shape%22:2}}}}},%22packages%22:{%22codes%22:[],%22urls%22:[]}}}},%22params%22:{%22cameraPos%22:[-1.3569684028007218,3.6086554650568443,27.073647434168226],%22cameraCenter%22:[0.7126313089143911,-0.07958021215223177,6.060648926976316]}}" target="_blank">Points game scene 2</a>
+</li>
 
-    var vz = Viewzavr.create();
-    // window.vz = vz;
-    
-    //////////////////////////// player
-    
-    import * as Player from "//viewlang.ru/viewzavr-apps/viewzavr-system-a/player/init.js";
-    var vzPlayer = Player.create( vz, qmlEngine );
-    window.vzPlayer = vzPlayer;
-    
-    //////////////////////////// graphical api
-    import * as VisAPI from "//viewlang.ru/viewzavr-apps/viewzavr-system-a/graphical-api/init.js";
-    VisAPI.setup( vz );
-
-    //////////////////////////// library-one
-    import * as lib1 from "//viewlang.ru/viewzavr-apps/viewzavr-system-a/lib/library-one/init.js";
-    lib1.setup( vz, vzPlayer );
-
-    //////////////////////////// load user script
-
-      // use this logic if you want to load app files defined in parameter.
-      // var userurl = getParameterByName("src");
-      // if (!userurl) userurl = vz.getDir( import.meta.url ) + "./app.js";
-      var userurl = vz.getDir( import.meta.url ) + "./app.js";
-
-      console.log("user script url=",userurl );
-
-      var q;
-      if (userurl) {
-        // тут у нас форматирование для загрузки через прокси
-        userurl = formatSrc( userurl );
-        console.log("reformatted:",userurl );
-        q = vzPlayer.loadApp( userurl );
-      }
-      else 
-      {
-        // idea: load empty scene always and then load user scripts into it as a child?
-        console.log("lllloading empty scene..");
-        q = vzPlayer.loadEmptyScene();
-      }
-
-      q.then( function() {
-        vzPlayer.loadFromHash();
-        vzPlayer.startSavingToHash();
-      });
-
-  </script>
+</ul>
 
 </body>
